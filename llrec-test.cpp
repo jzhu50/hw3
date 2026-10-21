@@ -66,10 +66,11 @@ void dealloc(Node* head)
 //   Add any helper functions or
 //   function object struct declarations
 // -----------------------------------------------
-
-
-
-
+struct RemoveOdd {
+  bool operator()(int val) const {
+    return val % 2 != 0;
+  }
+};
 
 int main(int argc, char* argv[])
 {
@@ -85,11 +86,26 @@ int main(int argc, char* argv[])
     cout << "Original list: ";
     print(head);
 
-    // Test out your linked list code
+    // // Test out your linked list code
+    // Node* smaller = NULL;
+    // Node* larger = NULL;
+    // llpivot(head, smaller, larger, 10);
+    
+    // cout << "Smaller: ";
+    // print(smaller);
+    // cout << "Larger: ";
+    // print(larger);
 
+    // cout << (head == NULL) << endl; // expected 1
 
+    // dealloc(smaller);
+    // dealloc(larger);
 
+    head = llfilter(head, RemoveOdd());
+    cout << "Filtered list: ";
+    print(head);
+
+    dealloc(head);
     
     return 0;
-
 }
