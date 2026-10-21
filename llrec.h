@@ -4,9 +4,6 @@
 #define NULL 0
 #endif
 
-/**
- * Node struct for both problems
- */
 struct Node
 {
     int val;
